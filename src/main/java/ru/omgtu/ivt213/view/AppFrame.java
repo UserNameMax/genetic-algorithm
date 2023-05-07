@@ -24,10 +24,11 @@ public class AppFrame extends JFrame {
         setSize(610, 400);
     }
     public void paint(Graphics g) {
-        for (int j = 0;j<10;++j){
-            for (int i = 0; i<10;++i){
+        int length = 100;
+        for (int j = 0;j<length;++j){
+            for (int i = 0; i<length;++i){
                 if (map.checkCell(new Pair<>(i,j))){
-                    g.fillRect(i*getWidth()/10, j*getHeight()/10, getWidth()/10, getHeight()/10);
+                    g.fillRect(i*getWidth()/length, j*getHeight()/length, getWidth()/length, getHeight()/length);
                 }
             }
         }

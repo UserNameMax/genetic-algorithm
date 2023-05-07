@@ -23,7 +23,7 @@ public class CellsMap {
     }
 
     Pair<Pair<Integer, Integer>, Boolean> getCell(Pair<Integer, Integer> cellCord){
-        if (cellCord.first >= _width && cellCord.second >= _height) return null;
+        if (cellCord.first >= _width || cellCord.second >= _height || cellCord.first <= 0 || cellCord.second <= 0) return null;
         return _map.stream().filter((Pair<Pair<Integer, Integer>, Boolean> pair) -> pair.first.equals(cellCord)).collect(Collectors.toList()).get(0);
     }
 
