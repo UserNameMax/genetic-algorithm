@@ -4,13 +4,13 @@ import ru.omgtu.ivt213.Cell;
 import ru.omgtu.ivt213.CellsMap;
 import ru.omgtu.ivt213.utils.Pair;
 
+import java.util.Random;
+
 public class CheckCellAroundCount extends CheckAlgorithm {
-    private CellsMap _cellsMap;
     private int _i;
 
     public CheckCellAroundCount(int i, CellsMap cellsMap, Algorithm lessAlgorithm, Algorithm equalsAlgorithm, Algorithm moreAlgorithm){
-        super(lessAlgorithm,equalsAlgorithm,moreAlgorithm);
-        _cellsMap = cellsMap;
+        super(cellsMap,lessAlgorithm,equalsAlgorithm,moreAlgorithm);
         _i = i;
     }
     @Override
@@ -27,10 +27,15 @@ public class CheckCellAroundCount extends CheckAlgorithm {
         };
         int counter = 0;
         for (Pair cord: coords){
-            if (_cellsMap.checkCell(cord)) counter++;
+            if (_map.checkCell(cord)) counter++;
         }
         if (counter>_i) return 1;
         if (counter<_i) return -1;
         return 0;
+    }
+
+    @Override
+    protected void mutateParametr() {
+        _i = new Random().nextInt(9);
     }
 }

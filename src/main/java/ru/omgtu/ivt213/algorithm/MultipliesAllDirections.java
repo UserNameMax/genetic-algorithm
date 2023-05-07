@@ -2,7 +2,7 @@ package ru.omgtu.ivt213.algorithm;
 
 import ru.omgtu.ivt213.Cell;
 
-public class MultipliesAllDirections  implements Algorithm{
+public class MultipliesAllDirections implements Algorithm {
     @Override
     public Cell[] getChield(Cell parent) {
         return new Cell[]{
@@ -11,5 +11,10 @@ public class MultipliesAllDirections  implements Algorithm{
                 parent.copy(parent.x,parent.y+1),
                 parent.copy(parent.x,parent.y-1)
         };
+    }
+
+    @Override
+    public void mutate() {
+
     }
 }
